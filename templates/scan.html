@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container px-5 py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">Scan Results</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Issues found at {{ url }}:</h3>
+        </div>
+        <div class="col-md-12">
+            <ol>
+                {% for issue in issues %}
+                <li>{{ issue.issue }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+</div>
+{% endblock %}
+```

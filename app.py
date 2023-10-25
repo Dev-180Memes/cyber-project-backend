@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 import requests
 from bs4 import BeautifulSoup
 
@@ -167,8 +167,12 @@ def check_directory_listing(url):
 
 
 @app.route('/')
-def index():
-    pass
+def home():
+    """
+    Renders the home page
+    :return:
+    """
+    return render_template('home.html')
 
 
 @app.route('/scan', methods=['POST'])
@@ -188,7 +192,7 @@ def scan():
     check_xss_protection(url)
     check_directory_listing(url)
 
-    return {"issues": issues}
+    return render_template('scan.html', issues=issues, url=url)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container px-5 py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">Vulnerability Scanner</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form action="{{ url_for('scan') }}" method="POST">
+                <div class="mb-3">
+                    <label for="url" class="form-label">URL</label>
+                    <input type="text" class="form-control" id="url" name="url" placeholder="https://example.com">
+                </div>
+<!--                submit button-->
+                <button type="submit" class="btn btn-primary">Scan</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+```
